@@ -3,6 +3,8 @@ package main
 import (
 	"log"
 	"rsa/server"
+
+	jwt "github.com/dgrijalva/jwt-go"
 )
 
 var host = "localhost"
