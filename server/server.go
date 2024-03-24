@@ -3,6 +3,7 @@ package server
 import (
 	"log"
 	"net/http"
+	"rsa/server/middleware"
 )
 
 func StartServer(hostname string, port string) error {
@@ -10,9 +11,9 @@ func StartServer(hostname string, port string) error {
 
 	log.Printf("Listing on : %s", host)
 
-	//    handler := middleware.NewHandler()
-	//
-	//	http.Handle("/", handler)
+	handler := middleware.NewHandler()
+
+	http.Handle("/", handler)
 	//	return http.ListenAndServe(host, nil)
 	return http.ListenAndServe(host, nil)
 }

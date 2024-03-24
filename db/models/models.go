@@ -6,7 +6,7 @@ import (
 	"rsa/utils/random"
 	"time"
 
-	jwt "github.com/golang-jwt/jwt"
+	jwt "github.com/dgrijalva/jwt-go"
 )
 
 type User struct {

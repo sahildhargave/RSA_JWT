@@ -2,13 +2,14 @@ package main
 
 import (
 	"log"
+	"rsa/db"
 	"rsa/server"
 
-	jwt "github.com/dgrijalva/jwt-go"
+	"rsa/server/middleware/jwt"
 )
 
 var host = "localhost"
-var port = "3000"
+var port = "9090"
 
 func main() {
 	db.InitDB()
@@ -16,7 +17,7 @@ func main() {
 	jwtErr := jwt.InitJWT()
 	if jwtErr != nil {
 		log.Println("Error initializing the JWT!")
-		log.Fatal(jwt)
+		log.Fatal(jwtErr)
 	}
 
 	serverErr := server.StartServer(host, port)
